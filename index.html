@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Serviços — Teresa Coutinho</title>
+<link href="https://api.fontshare.com/v2/css?f[]=garet@400,700,900&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ivory: #FAF8F4;
+    --sage: #5C9E62;
+    --sage-light: #C8E6CB;
+    --gold: #C9A96E;
+    --brown: #3D3530;
+    --blush: #F2BCAD;
+    --blush-light: #FAEAE5;
+    --muted: #7A7069;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Garet', sans-serif;
+    background-color: var(--ivory);
+    color: var(--brown);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background-color: var(--blush-light);
+    padding: 80px 24px 64px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Garet', sans-serif;
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--brown);
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--sage);
+    color: var(--white);
+    font-family: 'Garet', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background-color: #4a8a50; }
+
+  /* ── IMAGE BANNER ── */
+  .img-banner {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 560px) {
+    .img-banner { height: 220px; }
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 48px;
+    height: 3px;
+    background-color: var(--gold);
+    margin: 0 auto 32px;
+    border-radius: 50px;
+  }
+
+  .divider-left {
+    width: 48px;
+    height: 3px;
+    background-color: var(--gold);
+    margin: 0 0 32px 0;
+    border-radius: 50px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 72px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    font-family: 'Garet', sans-serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--brown);
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  /* ── QUEM É ── */
+  .quem-bg {
+    background-color: var(--blush-light);
+    padding: 72px 24px;
+  }
+
+  .quem-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .quem-inner h2 {
+    font-family: 'Garet', sans-serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 24px;
+  }
+
+  .quem-inner p {
+    font-size: 15px;
+    color: var(--brown);
+    line-height: 1.85;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .certs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .certs li {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--brown);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--white);
+    padding: 14px 18px;
+    border-radius: 16px;
+    line-height: 1.5;
+  }
+
+  /* ── SERVIÇOS ── */
+  .servicos-bg {
+    background-color: var(--sage-light);
+    padding: 72px 24px;
+  }
+
+  .servicos-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .servicos-inner h2 {
+    font-family: 'Garet', sans-serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 700px) {
+    .servicos-grid { grid-template-columns: 1fr; }
+  }
+
+  .servico-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 22px;
+  }
+
+  .servico-card h3 {
+    font-family: 'Garet', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .servico-card .servico-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .servico-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .servico-card ul li {
+    font-size: 13px;
+    color: var(--brown);
+    font-weight: 500;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+  }
+
+  .servico-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  /* ── BABY SIGNS ── */
+  .babysigns-logo {
+    display: block;
+    max-width: 180px;
+    margin: 0 auto 20px;
+  }
+
+  /* ── CHEQUE PRENDA ── */
+  .cheque-bg {
+    background-color: var(--brown);
+    padding: 72px 24px;
+    text-align: center;
+  }
+
+  .cheque-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cheque-inner .section-label { color: var(--gold); }
+
+  .cheque-inner h2 {
+    font-family: 'Garet', sans-serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 700;
+    color: var(--ivory);
+    margin-bottom: 20px;
+  }
+
+  .cheque-inner p {
+    font-size: 15px;
+    color: #AEA49B;
+    line-height: 1.85;
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--brown);
+    font-family: 'Garet', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-gold:hover { background-color: #b8943e; }
+
+  /* ── FORMULÁRIO ── */
+  .form-bg {
+    background-color: var(--blush);
+    padding: 72px 24px 80px;
+  }
+
+  .form-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .form-inner h2 {
+    font-family: 'Garet', sans-serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .form-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 22px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--white);
+    border: 1.5px solid #DDD5CC;
+    border-radius: 50px;
+    padding: 14px 20px;
+    font-family: 'Garet', sans-serif;
+    font-size: 14px;
+    color: var(--brown);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-group textarea {
+    border-radius: 20px;
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-group select option {
+    background: var(--white);
+    color: var(--brown);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #B0A49C;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--sage);
+  }
+
+  .btn-submit {
+    display: inline-block;
+    background-color: var(--sage);
+    color: var(--white);
+    font-family: 'Garet', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover { background-color: #4a8a50; }
+
+  .form-note {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  /* ── RODAPÉ ── */
+  .rodape {
+    text-align: center;
+    padding: 40px 24px;
+    background-color: var(--ivory);
+  }
+
+  .rodape p {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .rodape strong {
+    color: var(--brown);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SECÇÃO 1 — HERO ── -->
+<div class="hero">
+  <p class="hero-eyebrow">Apoio Parental</p>
+  <h1>Cada mãe merece apoio. Conheça os meus serviços.</h1>
+  <p class="hero-sub">Do primeiro dia até às primeiras palavras, estou aqui em cada etapa.</p>
+  <a href="#formulario" class="btn-primary">Fale comigo</a>
+</div>
+
+<!-- ── IMAGEM 1 ── -->
+<img class="img-banner" src="foto-amamentacao2.jpg" alt="Mãe a amamentar" />
+
+<!-- ── SECÇÃO 2 — QUEM É ── -->
+<div class="quem-bg">
+  <div class="quem-inner">
+    <span class="section-label">Quem sou eu</span>
+    <div class="divider" style="margin-left:0;"></div>
+    <h2>Teresa Coutinho — Apoio Parental</h2>
+    <p>Sou Enfermeira Especialista em Saúde Materna e Obstétrica e Conselheira em Lactação IBCLC.</p>
+    <p>Acompanho mães e famílias desde a gravidez até ao pós-parto, com informação clara, baseada na evidência, e um apoio próximo e sem julgamento. Porque cada mãe merece sentir que não está sozinha neste caminho.</p>
+    <ul class="certs">
+      <li>🩺 Enfermeira Especialista em Saúde Materna e Obstétrica</li>
+      <li>🍼 Conselheira em Lactação IBCLC, apoio especializado para uma amamentação mais tranquila</li>
+      <li>👐 Instrutora de Massagem Infantil, ligação e bem-estar para o seu bebé</li>
+      <li>🤲 Instrutora Certificada e Independente do Programa Baby Signs®, comunicação com o seu bebé antes das primeiras palavras</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── IMAGEM 2 ── -->
+<img class="img-banner" src="foto-pes.jpg" alt="Massagem infantil" />
+
+<!-- ── SECÇÃO 3 — SERVIÇOS ── -->
+<div class="servicos-bg">
+  <div class="servicos-inner">
+    <span class="section-label" style="text-align:center; display:block;">O que faço</span>
+    <div class="divider"></div>
+    <h2>O que posso fazer por si</h2>
+    <div class="servicos-grid">
+
+      <div class="servico-card">
+        <span class="servico-icon">🤱</span>
+        <h3>Consultas de Amamentação</h3>
+        <p class="servico-desc">Apoio individualizado em cada fase da amamentação, desde a preparação até à resolução de dificuldades.</p>
+        <ul>
+          <li>🔹 Na gravidez</li>
+          <li>🔹 Apoio no pós-parto</li>
+          <li>🔹 Com gémeos</li>
+          <li>🔹 Regresso ao trabalho</li>
+          <li>🔹 Recolha de colostro na gravidez</li>
+          <li>🔹 Construção do plano de amamentação</li>
+        </ul>
+      </div>
+
+      <div class="servico-card">
+        <img src="logo-babysigns.webp" alt="Baby Signs Portugal" class="babysigns-logo" />
+        <h3>Baby Signs®</h3>
+        <p class="servico-desc">Ensine o seu bebé a comunicar antes de falar, através de gestos simples que reduzem a frustração e fortalecem o vínculo.</p>
+        <ul>
+          <li>🔹 Aulas Baby Signs para pais e bebés</li>
+          <li>🔹 Workshop Baby Signs pais</li>
+          <li>🔹 Curso Baby Signs para profissionais</li>
+        </ul>
+      </div>
+
+      <div class="servico-card">
+        <span class="servico-icon">📚</span>
+        <h3>Cursos e Workshops</h3>
+        <p class="servico-desc">Formação prática e acessível para viver a maternidade com mais conhecimento e menos ansiedade.</p>
+        <ul>
+          <li>🔹 Workshop "O Segredo do Sucesso na Amamentação"</li>
+          <li>🔹 Curso de Massagem Infantil para pais e bebés</li>
+          <li>🔹 Consulta de construção do plano de parto</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── SECÇÃO 4 — CHEQUE PRENDA ── -->
+<div class="cheque-bg">
+  <div class="cheque-inner">
+    <span class="section-label">Cheque Prenda</span>
+    <div class="divider"></div>
+    <h2>O presente mais útil que pode oferecer a uma mãe.</h2>
+    <p>Um Cheque Prenda Teresa Coutinho é oferecer conhecimento, tranquilidade e confiança, no momento em que mais são precisos. Disponível para consultas de amamentação. Ideal para oferecer a grávidas e mães no pós-parto.</p>
+    <a href="#formulario" class="btn-gold">Quero saber mais</a>
+  </div>
+</div>
+
+<!-- ── SECÇÃO 5 — FORMULÁRIO ── -->
+<div class="form-bg" id="formulario">
+  <div class="form-inner">
+    <span class="section-label" style="text-align:center; display:block;">Contacto</span>
+    <div class="divider"></div>
+    <h2>Tem dúvidas? Fale comigo.</h2>
+    <p class="form-sub">Preencha o formulário e entro em contacto consigo brevemente.</p>
+
+    <form action="https://formspree.io/f/meeblbpo" method="post">
+
+      <div class="form-group">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" placeholder="O seu nome" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="O seu email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="O seu número de telefone" />
+      </div>
+
+      <div class="form-group">
+        <label for="servico">Serviço de interesse</label>
+        <select id="servico" name="servico">
+          <option value="" disabled selected>Selecione o serviço</option>
+          <option value="amamentacao">Consulta de amamentação</option>
+          <option value="babysigns">Baby Signs</option>
+          <option value="workshop">Workshop / Curso</option>
+          <option value="cheque">Cheque Prenda</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Partilhe mais sobre a sua situação, se quiser…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Enviar mensagem</button>
+      <p class="form-note">Respondo em 24 a 48 horas úteis. 🤍</p>
+
+    </form>
+  </div>
+</div>
+
+<!-- ── RODAPÉ ── -->
+<div class="rodape">
+  <p>📍 Consultas presenciais em <strong>Mariocas, Vila Real</strong></p>
+</div>
+
+</body>
+</html>
